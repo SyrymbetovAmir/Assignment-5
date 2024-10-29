@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Digital Clock</title>
+</head>
+<body>
+    <h1 id="time"></h1>
+    <script>
+        function updateClock() {
+            const now = new Date();
+            var hours = String(now.getHours());
+            var minutes = String(now.getMinutes());
+            var seconds = String(now.getSeconds());
+            if (parseInt(hours) < 10) {
+                hours = "0" + hours;
+            }
+            if (parseInt(minutes) < 10) {
+                minutes = "0" + minutes;
+            }
+            if (parseInt(seconds) < 10) {
+                seconds = "0" + seconds;
+            }
+
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            document.getElementById("time").innerText = timeString;
+        }
+
+        setInterval(updateClock, 1000);
+
+        updateClock();
+    </script>
+</body>
+</html>
