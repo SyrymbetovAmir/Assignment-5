@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Split Sentences</title>
+</head>
+<body>
+    <h1>Split Each Sentence on a New Line</h1>
+    <p id="text">
+        Hello! How are you doing? This is a simple test. Let's see how it works.
+    </p>
+    <script>
+        // Function to split each sentence onto a new line
+        function splitSentences() {
+            const paragraph = document.querySelector("#text");
+            const sentences = paragraph.innerText.split(/(?<=[.!?])\s+/);  // Split by sentence-ending punctuation
+
+            // Wrap each sentence in a <p> tag and join them with a newline
+            const formattedText = sentences.map(sentence => `<p>${sentence}</p>`).join("");
+
+            // Update the paragraph with the modified text
+            paragraph.innerHTML = formattedText;
+        }
+
+        // Call the function to apply the split
+        splitSentences();
+    </script>
+</body>
+</html>

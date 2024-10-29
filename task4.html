@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Character Shift in Alphabet</title>
+</head>
+<body>
+    <h1>Shift Characters Forward in the Alphabet</h1>
+    <input type="text" id="inputString" placeholder="Enter a string" />
+    <button onclick="shiftCharacters()">Shift</button>
+    <script>
+        // Function to shift each character to the next in the alphabet
+        function shiftCharacters() {
+            const str = document.getElementById("inputString").value;
+
+            const shiftedStr = str.split('')
+                .map(char => {
+                    if (char.toLowerCase() >= 'a' && char.toLowerCase() <= 'z') {
+                        // Shift character, wrapping 'z' to 'a'
+                        return String.fromCharCode(
+                            char.charCodeAt(0) === 122 ? 97 :  // 'z' to 'a'
+                                char.charCodeAt(0) === 90 ? 65 :  // 'Z' to 'A'
+                                    char.charCodeAt(0) + 1
+                        );
+                    }
+                    return char; // Non-alphabet characters remain the same
+                })
+                .join('');
+            // Show result in an alert
+            alert(`Shifted string: ${shiftedStr}`);
+        }
+    </script>
+</body>
+</html>

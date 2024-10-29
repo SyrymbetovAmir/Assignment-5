@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Highlight Specific Words</title>
+    <style>
+        .italic-text { font-style: italic; }
+        .underlined-text { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Highlight Words by Conditions</h1>
+    <p id="text">
+        Lorem ipsum dolor sit amet, amazing and arbitrary applications allow artistry. Yesterday was sunny, but today feels gloomy.
+    </p>
+    <script>
+        function highlightWords() {
+            const paragraph = document.querySelector("#text");
+            const words = paragraph.innerText.split(" ");
+
+            const modifiedText = words.map(word => {
+                if (word.startsWith("a") || word.startsWith("A")) {
+                    return `<span class="italic-text">${word}</span>`;
+                } else if (word.endsWith("y") || word.endsWith("Y")) {
+                    return `<span class="underlined-text">${word}</span>`;
+                } else {
+                    return word;
+                }
+            }).join(" ");
+
+            paragraph.innerHTML = modifiedText;
+        }
+
+        // Call the function to apply the styles
+        highlightWords();
+    </script>
+</body>
+</html>

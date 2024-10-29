@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Highlight Words</title>
+    <style>
+        .highlight-blue { background-color: blue; color: white; }
+        .bold-text { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Highlight Specific Words</h1>
+    <p id="text">
+        This is an example paragraph with some long and short words.
+        Let's identify the longest and shortest words based on the conditions.
+    </p>
+    <script>
+        // Function to highlight words based on length
+        function highlightWords() {
+            const paragraph = document.querySelector("#text");
+            const words = paragraph.innerText.split(" ");
+
+            const modifiedText = words.map(word => {
+                if (word.length > 7) {
+                    return `<span class="highlight-blue">${word}</span>`;
+                } else if (word.length < 3) {
+                    return `<span class="bold-text">${word}</span>`;
+                } else {
+                    return word;
+                }
+            }).join(" ");
+
+            paragraph.innerHTML = modifiedText;
+        }
+
+        // Call the function to apply the styles
+        highlightWords();
+    </script>
+</body>
+</html>

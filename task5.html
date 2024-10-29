@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Longest and Shortest Word</title>
+</head>
+<body>
+    <h1>Find the Longest and Shortest Words</h1>
+    <button onclick="findLongestAndShortest()">Find</button>
+    <div id="result"></div>
+    <script>
+        // Function to find the longest and shortest word from three prompts
+        function findLongestAndShortest() {
+            // Prompt the user for three words
+            const words = [
+                prompt("Enter the first word:"),
+                prompt("Enter the second word:"),
+                prompt("Enter the third word:")
+            ];
+
+            // Find the longest word
+            const longest = words.reduce((a, b) => a.length >= b.length ? a : b);
+
+            // Find the shortest word
+            const shortest = words.reduce((a, b) => a.length <= b.length ? a : b);
+
+            // Display the result in HTML
+            document.getElementById("result").innerHTML = `
+            <p>The longest word is: ${longest}</p>
+            <p>The shortest word is: ${shortest}</p>
+        `;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Word Count</title>
+</head>
+<body>
+    <h1>Word Count in Paragraph</h1>
+    <p id="text">
+        This is a sample paragraph to demonstrate counting words. Each word is separated by a single space.
+    </p>
+    <script>
+        function countWords() {
+            const paragraph = document.querySelector("#text");
+            const wordCount = paragraph.innerText.trim().split(/\s+/).length; // Split by whitespace and count
+
+            // Display the word count in an alert
+            alert(`The paragraph contains ${wordCount} words.`);
+        }
+
+        // Call the function to display the word count
+        countWords();
+    </script>
+</body>
+</html>

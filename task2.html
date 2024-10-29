@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alphabetize Words</title>
+</head>
+<body>
+    <h1>Alphabetize Letters in Each Word</h1>
+    <div id="result"></div>
+</body>
+<script>
+    // Prompt the user for a sentence
+    const sentence = prompt("Enter a sentence:");
+
+    // Function to sort letters in each word
+    function alphabetizeWords(sentence) {
+        return sentence
+            .split(" ")                        // Split sentence into words
+            .map(word => word.split("").sort().join(""))  // Sort letters in each word
+            .join(" ");                        // Join words back into a sentence
+    }
+
+    // Get the alphabetized sentence
+    const alphabetizedSentence = alphabetizeWords(sentence);
+
+    // Display the result in HTML
+    document.getElementById("result").innerHTML = `
+    <p>Original sentence: ${sentence}</p>
+    <p>Alphabetized sentence: ${alphabetizedSentence}</p>
+`;
+
+</script>
+</html>

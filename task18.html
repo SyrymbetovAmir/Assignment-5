@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drag and Drop</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #282c34;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .dropzone {
+            width: 150px;
+            min-height: 300px;
+            background-color: #444;
+            border: 2px dashed #888;
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .draggable {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: grab;
+            user-select: none;
+            transition: background-color 0.2s;
+        }
+
+        .draggable:active {
+            background-color: #ff3b3b;
+            cursor: grabbing;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="dropzone" id="dropzone1">
+            <div class="draggable" draggable="true" id="item1">Item 1</div>
+            <div class="draggable" draggable="true" id="item2">Item 2</div>
+        </div>
+        <div class="dropzone" id="dropzone2">
+            <div class="draggable" draggable="true" id="item3">Item 3</div>
+            <div class="draggable" draggable="true" id="item4">Item 4</div>
+        </div>
+    </div>
+</body>
+<script>
+    const draggables = document.querySelectorAll(".draggable");
+    const dropzones = document.querySelectorAll(".dropzone");
+
+    draggables.forEach(draggable => {
+        draggable.addEventListener("dragstart", dragStart);
+    });
+
+    dropzones.forEach(dropzone => {
+        dropzone.addEventListener("dragover", dragOver);
+        dropzone.addEventListener("drop", dropItem);
+    });
+
+    function dragStart(event) {
+        event.dataTransfer.setData("text/plain", event.target.id);
+        setTimeout(() => {
+            event.target.classList.add("hide");
+        }, 0);
+    }
+
+    function dragOver(event) {
+        event.preventDefault();  // Prevent default to allow drop
+    }
+
+    function dropItem(event) {
+        event.preventDefault();
+        const id = event.dataTransfer.getData("text");
+        const draggable = document.getElementById(id);
+        draggable.classList.remove("hide");
+        event.target.appendChild(draggable);
+    }
+</script>
+</html>

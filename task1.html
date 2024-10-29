@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task 1</title>
+</head>
+<body>
+    <h1>Nearest and Farthest from 100</h1>
+    <div id="result"></div>
+</body>
+<script>
+    // Prompt the user for three numbers
+    const num1 = parseInt(prompt("Enter the first number:"));
+    const num2 = parseInt(prompt("Enter the second number:"));
+    const num3 = parseInt(prompt("Enter the third number:"));
+
+    // Calculate the distance of each number from 100
+    const distance1 = Math.abs(100 - num1);
+    const distance2 = Math.abs(100 - num2);
+    const distance3 = Math.abs(100 - num3);
+
+    // Determine the nearest and farthest numbers
+    let nearest, farthest;
+
+    if (distance1 <= distance2 && distance1 <= distance3) {
+        nearest = num1;
+    } else if (distance2 <= distance1 && distance2 <= distance3) {
+        nearest = num2;
+    } else {
+        nearest = num3;
+    }
+
+    if (distance1 >= distance2 && distance1 >= distance3) {
+        farthest = num1;
+    } else if (distance2 >= distance1 && distance2 >= distance3) {
+        farthest = num2;
+    } else {
+        farthest = num3;
+    }
+    // Display the result in HTML
+    document.getElementById("result").innerHTML = `
+    <p>The number closest to 100 is: ${nearest}</p>
+    <p>The number farthest from 100 is: ${farthest}</p>
+`;
+</script>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Mathematics Tasks</title>
+</head>
+<body>
+<h2>Volume of a Sphere</h2>
+<label for="radiusSphere">Radius:</label>
+<input type="number" id="radiusSphere" step="0.01">
+<button onclick="calculateSphereVolume()">Calculate</button>
+<p>Volume: <span id="sphereVolume">0.0000</span></p>
+
+<h2>Volume of a Cylinder</h2>
+<label for="radiusCylinder">Radius:</label>
+<input type="number" id="radiusCylinder" step="0.01">
+<label for="heightCylinder">Height:</label>
+<input type="number" id="heightCylinder" step="0.01">
+<button onclick="calculateCylinderVolume()">Calculate</button>
+<p>Volume: <span id="cylinderVolume">0.0000</span></p>
+
+<h2>Volume of a Cone</h2>
+<label for="radiusCone">Radius:</label>
+<input type="number" id="radiusCone" step="0.01">
+<label for="heightCone">Height:</label>
+<input type="number" id="heightCone" step="0.01">
+<button onclick="calculateConeVolume()">Calculate</button>
+<p>Volume: <span id="coneVolume">0.0000</span></p>
+
+<h2>Volume of a Prism</h2>
+<label for="basePrism">Base (B = a * b):</label>
+<input type="number" id="basePrism" step="0.01">
+<label for="heightPrism">Height:</label>
+<input type="number" id="heightPrism" step="0.01">
+<button onclick="calculatePrismVolume()">Calculate</button>
+<p>Volume: <span id="prismVolume">0.0000</span></p>
+
+<h2>Area of a Triangle</h2>
+<label for="baseTriangle">Base:</label>
+<input type="number" id="baseTriangle" step="0.01">
+<label for="heightTriangle">Height:</label>
+<input type="number" id="heightTriangle" step="0.01">
+<button onclick="calculateTriangleArea()">Calculate</button>
+<p>Area: <span id="triangleArea">0.0000</span></p>
+
+<script>
+    function calculateSphereVolume() {
+        const radius = parseFloat(document.getElementById("radiusSphere").value);
+        const volume = (4 / 3) * Math.PI * Math.pow(radius, 3);
+        document.getElementById("sphereVolume").innerText = volume.toFixed(4);
+    }
+
+    function calculateCylinderVolume() {
+        const radius = parseFloat(document.getElementById("radiusCylinder").value);
+        const height = parseFloat(document.getElementById("heightCylinder").value);
+        const volume = Math.PI * Math.pow(radius, 2) * height;
+        document.getElementById("cylinderVolume").innerText = volume.toFixed(4);
+    }
+
+    function calculateConeVolume() {
+        const radius = parseFloat(document.getElementById("radiusCone").value);
+        const height = parseFloat(document.getElementById("heightCone").value);
+        const volume = (1 / 3) * Math.PI * Math.pow(radius, 2) * height;
+        document.getElementById("coneVolume").innerText = volume.toFixed(4);
+    }
+
+    function calculatePrismVolume() {
+        const base = parseFloat(document.getElementById("basePrism").value);
+        const height = parseFloat(document.getElementById("heightPrism").value);
+        const volume = base * height;
+        document.getElementById("prismVolume").innerText = volume.toFixed(4);
+    }
+
+    function calculateTriangleArea() {
+        const base = parseFloat(document.getElementById("baseTriangle").value);
+        const height = parseFloat(document.getElementById("heightTriangle").value);
+        const area = 0.5 * base * height;
+        document.getElementById("triangleArea").innerText = area.toFixed(4);
+    }
+</script>
+</body>
+</html>

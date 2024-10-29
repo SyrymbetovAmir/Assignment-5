@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Replace Symbols</title>
+</head>
+<body>
+    <h1>Replace Symbols in Text</h1>
+    <p id="text">
+        Are you sure you want to proceed? This action cannot be undone! Please confirm!
+    </p>
+    <script>
+        function replaceSymbols() {
+            const paragraph = document.querySelector("#text");
+            const modifiedText = paragraph.innerHTML
+                .replace(/\?/g, "*")  // Replace all question marks with asterisks
+                .replace(/!/g, "@");   // Replace all exclamation marks with '@'
+
+            // Update the paragraph with the modified text
+            paragraph.innerHTML = modifiedText;
+        }
+        // Call the function to apply the replacements
+        replaceSymbols();
+    </script>
+</body>
+</html>
